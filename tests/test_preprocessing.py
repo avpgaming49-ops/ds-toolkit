@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
-from ds_toolkit import auto_preprocess
-from ds_toolkit.preprocessing import (
+from rage-tools import auto_preprocess
+from rage-tools.preprocessing import (
     cap_outliers_iqr,
     scale_numeric_features,
     encode_categorical,

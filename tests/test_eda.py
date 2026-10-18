@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from ds_toolkit.eda import (
+from rage-tools.eda import (
     dataset_overview,
     numeric_summary,
     categorical_summary,

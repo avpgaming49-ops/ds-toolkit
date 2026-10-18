@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
-from ds_toolkit.evaluation import evaluate_regression, evaluate_classification
-from ds_toolkit.utils import timer, reduce_memory_usage
+from rage-tools.evaluation import evaluate_regression, evaluate_classification
+from rage-tools.utils import timer, reduce_memory_usage
 
 @timer
 def run_eval_and_utils_tests():

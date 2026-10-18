@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from ds_toolkit.data_cleaning import (
+from rage-tools.data_cleaning import (
     clean_column_names,
     remove_duplicates,
     missing_value_summary,

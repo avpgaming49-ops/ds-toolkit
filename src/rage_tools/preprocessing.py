@@ -4,12 +4,12 @@ import pandas as pd
 import numpy as np
 from typing import List, Optional, Tuple
 
-from ds_toolkit.data_cleaning import (
+from rage_tools.data_cleaning import (
     clean_column_names,
     remove_duplicates,
     handle_missing_values,
 )
-from ds_toolkit.utils import timer, reduce_memory_usage
+from rage_tools.utils import timer, reduce_memory_usage
 
 
 def cap_outliers_iqr(

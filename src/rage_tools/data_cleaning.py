@@ -165,3 +165,50 @@ def handle_missing_values(
             df[col] = df[col].fillna(val)
 
     return df
+
+
+def check_column_duplicates(df: pd.DataFrame, col: Union[str, List[str], None] = None) -> pd.DataFrame:
+    """
+    Checks duplicate counts and percentages for specified columns in a DataFrame.
+    
+    Parameters:
+    - df: The pandas DataFrame to check.
+    - col: A single column name (str), a list of column names (List[str]), or None (checks all columns).
+    
+    Returns:
+    - A pandas DataFrame containing the column name, duplicate count, and duplicate percentage.
+    """
+    if not isinstance(df, pd.DataFrame):
+        raise TypeError("Input 'df' must be a pandas DataFrame.")
+    
+    if df.empty:
+        return pd.DataFrame(columns=['column_name', 'duplicate_count', 'duplicate_percentage'])
+
+    # Handle 'col' parameter types
+    if col is None:
+        cols_to_check = list(df.columns)
+    elif isinstance(col, str):
+        cols_to_check = [col]
+    else:
+        cols_to_check = list(col)
+    
+    total_rows = len(df)
+    results = []
+    
+    for c in cols_to_check:
+        if c not in df.columns:
+            raise ValueError(f"Column '{c}' not found in DataFrame.")
+        
+        # Count duplicate rows based on this specific column
+        dup_count = df.duplicated(subset=[c]).sum()
+        
+        # Calculate percentage (prevent division by zero)
+        dup_percentage = (dup_count / total_rows) * 100 if total_rows > 0 else 0.0
+        
+        results.append({
+            'column_name': c,
+            'duplicate_count': dup_count,
+            'duplicate_percentage': round(dup_percentage, 2)
+        })
+        
+    return pd.DataFrame(results)

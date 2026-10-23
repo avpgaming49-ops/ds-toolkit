@@ -3,6 +3,7 @@ from .data_cleaning import (
     remove_duplicates,
     missing_value_summary,
     handle_missing_values,
+    check_column_duplicates
 )
 
 from .eda import (
@@ -36,6 +37,7 @@ __all__ = [
     "remove_duplicates",
     "missing_value_summary",
     "handle_missing_values",
+    "check_column_duplicates"
     
     # EDA
     "dataset_overview",

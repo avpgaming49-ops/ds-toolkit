@@ -1,0 +1,12 @@
+# Build aur distribution folders
+dist/
+build/
+*.egg-info/
+
+# Python cache files
+__pycache__/
+*.pyc
+
+# Environment files
+.venv/
+env/
